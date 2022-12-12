@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.electroapp.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/points"
+        android:name="com.example.electroapp.ui.points.points"
+        android:label="fragment_points"
+        tools:layout="@layout/fragment_points" />
+    <fragment
+        android:id="@+id/users"
+        android:name="com.example.electroapp.ui.users.users"
+        android:label="fragment_users"
+        tools:layout="@layout/fragment_users" />
+    <fragment
+        android:id="@+id/map"
+        android:name="com.example.electroapp.ui.map.map"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
+
+</navigation>

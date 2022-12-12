@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">electroApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_map">Mapa</string>
+    <string name="title_points">Puntos</string>
+    <string name="title_users">Usuarios</string>
+    <string name="title_activity_map">map</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

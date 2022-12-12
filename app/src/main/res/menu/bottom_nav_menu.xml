@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:actionLayout="@layout/fragment_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
+    <item
+        android:id="@+id/map"
+        android:actionLayout="@layout/fragment_map"
+        android:icon="@android:drawable/ic_dialog_map"
+        android:title="@string/title_map" />
+
+    <item
+        android:id="@+id/points"
+        android:actionLayout="@layout/fragment_points"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/title_points" />
+    <item
+        android:id="@+id/users"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:actionLayout="@layout/fragment_users"
+        android:icon="@drawable/people"
+        android:title="@string/title_users" />
+
+</menu>
