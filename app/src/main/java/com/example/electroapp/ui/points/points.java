@@ -3,7 +3,10 @@ package com.example.electroapp.ui.points;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Debug;
 import android.view.LayoutInflater;
@@ -13,6 +16,12 @@ import android.widget.Button;
 
 import com.example.electroapp.MainActivity;
 import com.example.electroapp.R;
+import com.example.electroapp.adapter.PointAdapter;
+import com.example.electroapp.model.Point;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,6 +40,9 @@ public class points extends Fragment implements View.OnClickListener {
     private String mParam2;
     View view;
     Button btn_add;
+    RecyclerView mRecycler;
+    PointAdapter mAdapter;
+    FirebaseFirestore mFireStore;
     public points() {
         // Required empty public constructor
     }
@@ -67,9 +79,19 @@ public class points extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        mFireStore = FirebaseFirestore.getInstance();
+        mRecycler = (RecyclerView) view.findViewById(R.id.recyclerViewSingle);
+        mRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        Query query = mFireStore.collection("point");
+        FirestoreRecyclerOptions<Point> firestoreRecyclerOptions =
+                new FirestoreRecyclerOptions.Builder<Point>().setQuery(query,Point.class).build();
+        mAdapter = new PointAdapter(firestoreRecyclerOptions);
+        mAdapter.notifyDataSetChanged();
+        mRecycler.setAdapter(mAdapter);
         view = inflater.inflate(R.layout.fragment_points, container, false);
         btn_add = (Button) view.findViewById(R.id.btn_add);
         btn_add.setOnClickListener(this);
+        getActivity().setTitle("Puntos");
         return view;
     }
 
@@ -81,5 +103,17 @@ public class points extends Fragment implements View.OnClickListener {
                 startActivity(new Intent(getActivity(), newPoint.class));
                 break;
         }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAdapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mAdapter.stopListening();
     }
 }

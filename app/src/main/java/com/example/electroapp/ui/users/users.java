@@ -61,6 +61,7 @@ public class users extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        getActivity().setTitle("Usuarios");
         return inflater.inflate(R.layout.fragment_users, container, false);
     }
 }
