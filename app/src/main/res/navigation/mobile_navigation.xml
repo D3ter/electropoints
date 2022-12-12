@@ -11,11 +11,6 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/points"
-        android:name="com.example.electroapp.ui.points.points"
-        android:label="fragment_points"
-        tools:layout="@layout/fragment_points" />
-    <fragment
         android:id="@+id/users"
         android:name="com.example.electroapp.ui.users.users"
         android:label="fragment_users"
@@ -25,5 +20,10 @@
         android:name="com.example.electroapp.ui.map.map"
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" />
+    <fragment
+        android:id="@+id/points"
+        android:name="com.example.electroapp.ui.points.points"
+        android:label="fragment_points"
+        tools:layout="@layout/fragment_points" />
 
 </navigation>
