@@ -81,7 +81,7 @@ public class points extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         mFireStore = FirebaseFirestore.getInstance();
         mRecycler = (RecyclerView) view.findViewById(R.id.recyclerViewSingle);
-        mRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecycler.setLayoutManager(new LinearLayoutManager(this.getContext()));
         Query query = mFireStore.collection("point");
         FirestoreRecyclerOptions<Point> firestoreRecyclerOptions =
                 new FirestoreRecyclerOptions.Builder<Point>().setQuery(query,Point.class).build();
